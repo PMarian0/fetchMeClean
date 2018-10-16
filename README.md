@@ -27,10 +27,10 @@ As a system-wide script:
 - Also, the `-p` parameter can be specified to **print** instead of **delete** each branch
 - Another optional argument is `-D`, to force delete branches
 
-Just run it inside a git folder - it will perform a `git fetch -p`, and then `git branch -vv`. It regexps through the ones that contain the string `: gone]`, which indicates that they are no longer present in the upstream, and remove them.
-The script won't run if started from a folder that is not a git repository, or from inside the `.git` folder
+Just run it inside a git folder - it will perform a `git fetch -p`, and then `git branch -vv`. It *regexps* through the ones that contain the string `: gone]`, which indicates that they are no longer present in the upstream, and removes them.
+The script will not run if started from outside a git repository, or from inside the `.git` folder
 
-You can specify a branch to checkout to first via the `-b` argument (E.g: `-b integration`, defaults to `master`), to avoid the error of attempting & failing to delete the branch you are standing on if it was been deleted from the upstream. If you deleted master... well. :boom:
+You can specify a branch to checkout to first via the `-b` argument *(E.g: `-b integration`)*, to avoid the error of attempting & failing to delete the branch you are standing on if it was removed from the upstream. If you try to delete the current branch... well. :boom:
 
 ## The loader function
 
